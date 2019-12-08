@@ -14,3 +14,5 @@ LazyData: true
 RoxygenNote: 6.1.1
 Imports: 
     ggplot2
+URL: https://github.com/moodymudskipper/ggdollar
+BugReports: https://github.com/moodymudskipper/ggdollar/issues
