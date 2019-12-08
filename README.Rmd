@@ -18,11 +18,13 @@ knitr::opts_chunk$set(
 The goal of ggdollar is to provide a more intuitive way to set `theme()` arguments
 when using the package *ggplot2*.
 
+`theme()` is a complex function, we provide nested lists of functions that should
+guide the users to what they through a sequence of limited choices thanks to
+autocomplete.
+
 It's a draft, but works ok already.
 
 ## Installation
-
-You can install the released version of ggdollar from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 remotes::install_github("moodymudskipper/ggdollar")
@@ -34,7 +36,7 @@ remotes::install_github("moodymudskipper/ggdollar")
 
 `ggset` lets you dig to the element you want to change,
   and apply those changes, so that `ggset$panel$background(fill = "blue")` is the same as
-  `theme(panel.background = element_rec(fill = "blue"))`. The arguments are
+  `theme(panel.background = element_rect(fill = "blue"))`. The arguments are
   most of the time ultimately forwarded to an `element_*()` function and you can
   change many attributes of a component at once. `?margin` will provide the
   description of most parameters.
@@ -55,16 +57,17 @@ an partially arbitrary reorganization rather than a fully systematic one.
 library(ggdollar)
 library(ggplot2) 
 ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) + geom_point() + 
-  ggset$panel$background(fill = "white", color = "black") +
-  ggdo$set_text$angle$axis$x$bottom$text(45) +
-  ggremove$legend$all()
-## basic example code
+  ggset$panel$background(fill = "white", color = "black") + # top down approach to change theme
+  ggdo$set_text$angle$axis$x$bottom$text(45) + # bottom up approach
+  ggremove$legend$all() # removing element
 ```
 
 
-# To do : 
+## To do : 
 
+* find better names
 * support in `ggdo` attributes that aren't related to `element_*()` functions
 * Play around and see what doesn't feel right
-* find better names
 * better doc
+* cleaner code
+* display native *ggplot2* code

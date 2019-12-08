@@ -9,7 +9,7 @@ line_fun <- function(arg, length_arg) {
       if(!missing(length_arg)) alist(length=),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_line(
+        setNames(alist(ggplot2::element_line(
           colour, size, linetype, lineend, color, arrow, inherit.blank)),
           as.character(substitute(arg))
         ),
@@ -29,7 +29,7 @@ line_fun <- function(arg, length_arg) {
 #     c(alist(),
 #       as.call(c(
 #         quote(ggplot2::theme),
-#         setNames(alist(element_blank()),
+#         setNames(alist(ggplot2::element_blank()),
 #           as.character(substitute(arg))
 #         )
 #       ))
@@ -45,7 +45,7 @@ blank_fun <- function(arg, align_arg) {
       if(!missing(align_arg)) alist(align=),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_blank()),
+        setNames(alist(ggplot2::element_blank()),
           as.character(substitute(arg))
         ),
         if(!missing(align_arg)) {
@@ -84,7 +84,7 @@ rect_fun <- function(arg) {
             linetype = NULL, color = NULL, inherit.blank = FALSE),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_rect(
+        setNames(alist(ggplot2::element_rect(
           fill, colour, size, linetype, color, inherit.blank)),
           as.character(substitute(arg))
         )
@@ -103,7 +103,7 @@ text_fun <- function(arg, align_arg) {
       if(!missing(align_arg)) alist(align=),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_text(
+        setNames(alist(ggplot2::element_text(
           family, face, colour, size, hjust, vjust, angle,
           lineheight, color, margin, debug, inherit.blank)),
           as.character(substitute(arg))

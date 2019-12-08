@@ -4,8 +4,7 @@ fill_fun <- function(arg) {
   as.function(
     c(alist(fill = NULL),
       as.call(c(
-        quote(ggplot2::theme),
-        setNames(alist(element_rect(
+        setNames(alist(ggplot2::element_rect(
           fill = fill)),
           as.character(substitute(arg))
         )
@@ -19,7 +18,7 @@ color_border_fun <- function(arg) {
     c(alist(color = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_rect(
+        setNames(alist(ggplot2::element_rect(
           color = color)),
           as.character(substitute(arg))
         )
@@ -33,7 +32,7 @@ resize_border_fun <- function(arg) {
     c(alist(size = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_rect(
+        setNames(alist(ggplot2::element_rect(
           size = size)),
           as.character(substitute(arg))
         )
@@ -48,7 +47,7 @@ set_border_linetype_int_fun <- function(arg) {
     c(alist(linetype  = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_rect(
+        setNames(alist(ggplot2::element_rect(
           linetype  = {
             stopifnot(is.numeric(linetype) && length(linetype) == 1 && linetype %in% 1:8)
             linetype})),
@@ -64,7 +63,7 @@ set_border_linetype_str_fun <- function(arg) {
     c(alist(linetype  = c("blank", "solid", "dashed", "dotted", "dotdash", "longdash", "twodash")),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_rect(
+        setNames(alist(ggplot2::element_rect(
           linetype  = match.arg(linetype))),
           as.character(substitute(arg))
         )
@@ -78,7 +77,7 @@ set_border_linetype_hex_fun <- function(arg) {
     c(alist(linetype  = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_rect(
+        setNames(alist(ggplot2::element_rect(
           linetype  = {
             stopifnot(is.character(linetype) && length(linetype) == 1)
             linetype})),
@@ -104,7 +103,7 @@ color_line_fun <- function(arg) {
     c(alist(color = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_line(
+        setNames(alist(ggplot2::element_line(
           color = color)),
           as.character(substitute(arg))
         )
@@ -118,7 +117,7 @@ resize_line_fun <- function(arg) {
     c(alist(size = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_line(
+        setNames(alist(ggplot2::element_line(
           size = size)),
           as.character(substitute(arg))
         )
@@ -132,7 +131,7 @@ set_linetype_int_fun <- function(arg) {
     c(alist(linetype  = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_line(
+        setNames(alist(ggplot2::element_line(
           linetype  = {
             stopifnot(is.numeric(linetype) && length(linetype) == 1 && linetype %in% 1:8)
             linetype})),
@@ -148,7 +147,7 @@ set_linetype_str_fun <- function(arg) {
     c(alist(linetype  = c("blank", "solid", "dashed", "dotted", "dotdash", "longdash", "twodash")),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_line(
+        setNames(alist(ggplot2::element_line(
           linetype  = match.arg(linetype))),
           as.character(substitute(arg))
         )
@@ -162,7 +161,7 @@ set_linetype_hex_fun <- function(arg) {
     c(alist(linetype  = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_line(
+        setNames(alist(ggplot2::element_line(
           linetype  = {
             stopifnot(is.character(linetype) && length(linetype) == 1)
             linetype})),
@@ -185,7 +184,7 @@ set_lineend_fun <- function(arg) {
     c(alist(lineend  = c("butt", "round", "square")),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_line(
+        setNames(alist(ggplot2::element_line(
           lineend  = match.arg(lineend))),
           as.character(substitute(arg))
         )
@@ -200,7 +199,7 @@ set_arrow_fun <- function(arg) {
             ends = c("last", "first","both"), type = c("open", "closed")),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_line(arrow = grid::arrow(
+        setNames(alist(ggplot2::element_line(arrow = grid::arrow(
           angle, length, ends = match.arg(ends), type = match.arg(type)))),
           as.character(substitute(arg))
         )
@@ -218,7 +217,7 @@ set_font_family_fun <- function(arg) {
     c(alist(family = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_text(
+        setNames(alist(ggplot2::element_text(
           family = family)),
           as.character(substitute(arg))
         )
@@ -232,7 +231,7 @@ set_font_face_fun <- function(arg) {
     c(alist(face = c("plain", "italic", "bold", "bold.italic")),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_text(
+        setNames(alist(ggplot2::element_text(
           face = match.arg(face))),
           as.character(substitute(arg))
         )
@@ -246,7 +245,7 @@ set_font_color_fun <- function(arg) {
     c(alist(color = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_text(
+        setNames(alist(ggplot2::element_text(
           color = color)),
           as.character(substitute(arg))
         )
@@ -260,7 +259,7 @@ resize_text_fun <- function(arg) {
     c(alist(size = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_text(
+        setNames(alist(ggplot2::element_text(
           size = size)),
           as.character(substitute(arg))
         )
@@ -274,7 +273,7 @@ allign_text_fun <- function(arg) {
     c(alist(hjust = NULL, vjust = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_text(
+        setNames(alist(ggplot2::element_text(
           hjust = hjust, vjust = vjust)),
           as.character(substitute(arg))
         )
@@ -289,7 +288,7 @@ rotate_text_fun <- function(arg) {
     c(alist(angle = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_text(
+        setNames(alist(ggplot2::element_text(
           angle = angle)),
           as.character(substitute(arg))
         )
@@ -304,7 +303,7 @@ set_text_lineheight_fun <- function(arg) {
     c(alist(lineheight  = NULL),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_text(
+        setNames(alist(ggplot2::element_text(
           lineheight = lineheight )),
           as.character(substitute(arg))
         )
@@ -318,7 +317,7 @@ set_text_margin_fun <- function(arg) {
     c(alist(t = 0, r = 0, b = 0, l = 0, unit = "pt"),
       as.call(c(
         quote(ggplot2::theme),
-        setNames(alist(element_text(
+        setNames(alist(ggplot2::element_text(
           margin = margin(t, r, b, l, unit))),
           as.character(substitute(arg))
         )
